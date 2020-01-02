@@ -1,0 +1,9 @@
+{
+  "name": "Django_React_Board",
+  "version": "1.0.0",
+  "description": "Django + React + jwt +aws",
+  "main": "index.js",
+  "repository": "https://github.com/jojojojo1322/Django_React_Board.git",
+  "author": "jojojojo1322 <bobob935@gmail.com>",
+  "license": "MIT"
+}
