@@ -47,12 +47,7 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-#이하 추가
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
-}
+
 
 
 MIDDLEWARE = [
