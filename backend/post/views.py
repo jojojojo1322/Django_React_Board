@@ -25,7 +25,7 @@ class CommentList(APIView):
     def post(self, request, pk, format=None):
         serializer = CommentSerializer(data=request.data)
         print(request.data)
-        # print(serializer.validated_data)
+        # print(serializer.data)
         if serializer.is_valid():
             serializer.save(post=Post.objects.get(pk=pk), user=request.user)
             print("success")
