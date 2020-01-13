@@ -13,17 +13,27 @@ from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 
 from rest_framework.permissions import IsAuthenticated
+from rest_framework import permissions
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
+from rest_framework.decorators import api_view, permission_classes, authentication_classes
 
 
-
+@permission_classes((IsAuthenticated, ))
+@authentication_classes((JSONWebTokenAuthentication,))
 class ListPost(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
+
+@permission_classes((IsAuthenticated, ))
+@authentication_classes((JSONWebTokenAuthentication,))
 class DetailPost(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
+
+@permission_classes((IsAuthenticated, ))
+@authentication_classes((JSONWebTokenAuthentication,))
 class CommentList(APIView):
 
     def post(self, request, pk, format=None):
@@ -43,6 +53,9 @@ class CommentList(APIView):
         )
         return Response(serializer.data)
 
+
+@permission_classes((IsAuthenticated, ))
+@authentication_classes((JSONWebTokenAuthentication,))
 class CommentDetail(APIView):
     def get_object(self, post_pk, comment_pk):
         try:

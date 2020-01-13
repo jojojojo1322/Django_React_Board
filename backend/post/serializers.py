@@ -1,15 +1,15 @@
 #backend/post/serializers.py
 
 from rest_framework import serializers
-# from umc.models import User
-from django.contrib.auth.models import User
+from umc.models import User
+
 
 from .models import Post, Comment
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id','nickname',"email")
+        fields = ('id',"email")
 
 class PostSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
