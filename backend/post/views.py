@@ -12,6 +12,10 @@ from rest_framework.response import Response
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 
+from rest_framework.permissions import IsAuthenticated
+
+
+
 class ListPost(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
