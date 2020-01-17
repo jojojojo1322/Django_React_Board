@@ -1,7 +1,7 @@
 #backend/post/serializers.py
 
 from rest_framework import serializers
-from umc.models import User
+from django.contrib.auth.models import User
 
 
 from .models import Post, Comment
